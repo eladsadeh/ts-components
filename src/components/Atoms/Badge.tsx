@@ -32,15 +32,17 @@ const Badge = (props: BadgeProps) => {
 	const badgeCss = isPrimary ? styles.primary : styles.standalone;
 
 	return (
-		<span title={`${status}-badge`}>
-			<span css={styles.wrapper}>
-				{isPrimary && <span>{children}</span>}
+		<div
+			// className={children?.props?.className ? children?.props?.className : ''}
+			title={`${status}-badge`}>
+			<div css={styles.wrapper}>
+				{isPrimary && <div>{children}</div>}
 				<span css={[styles.badge(hide, size, status, isEmpty), badgeCss]}>
 					{label}
 				</span>
 				{!isPrimary && <span css={styles.text(size, hide)}>{text}</span>}
-			</span>
-		</span>
+			</div>
+		</div>
 	);
 };
 
