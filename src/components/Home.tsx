@@ -5,7 +5,6 @@ import Tabs from './Atoms/Tabs/Tabs';
 function Home() {
 	return (
 		<div style={{ margin: '20px' }}>
-			
 			<Badge count={34} status='processing' size='s'>
 				<h2
 					style={{
@@ -23,7 +22,8 @@ function Home() {
 					{ header: 'Tab 1', content: <div>Content of First Tab</div> },
 					{ header: 'Tab 2', content: <div>Content of Second Tab</div> },
 					{ header: 'Tab 3', content: <div>Content of Third Tab</div> },
-				]} active={1}
+				]}
+				active={18}
 			/>
 		</div>
 	);
