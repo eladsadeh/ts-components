@@ -12,24 +12,25 @@ type TabsProps = {
 };
 
 function Tabs({ active, tabs }: TabsProps) {
-	console.log(tabs);
-	let initialTab: number = active || 0;
+
+	let initialTab: number = Math.min(active || 0, tabs.length-1);
+    
 	const [activeTab, setActiveTab] = useState(initialTab);
-	console.log(activeTab);
 
-	const handleTabClick = (index: number) => setActiveTab(index);
-
-	const tabsHeaders = tabs.map((tab, i) => (
-		<button type='button' onClick={() => handleTabClick(i)}>
+	const tabsHeaders = tabs.map((tab, index) => (
+		<button
+			key={index}
+			css={styles.tabHeader(index === activeTab)}
+			type='button'
+			onClick={() => setActiveTab(index)}>
 			{tab.header}
 		</button>
 	));
-	console.log(tabsHeaders);
 
 	return (
 		<div css={styles.tabs}>
 			<div>{tabsHeaders}</div>
-			<div>{tabs[activeTab].content}</div>
+			<div css={styles.content}>{tabs[activeTab].content}</div>
 		</div>
 	);
 }
