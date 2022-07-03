@@ -2,6 +2,7 @@ import { css } from '@emotion/react';
 
 const breadcrumbs = css`
 	display: inline-block;
+    margin: 10px;
 	ol {
 		list-style: none;
 		padding: 0;
@@ -12,6 +13,7 @@ const breadcrumbs = css`
 	}
 	a {
 		color: gray;
+        text-decoration: none;
 		&:hover {
 			color: black;
 		}
