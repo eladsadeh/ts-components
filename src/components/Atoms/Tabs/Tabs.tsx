@@ -1,6 +1,6 @@
 /** @jsxImportSource @emotion/react */
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styles from './Tabs.style';
 
 type TabsProps = {
@@ -12,24 +12,34 @@ type TabsProps = {
 };
 
 function Tabs({ active, tabs }: TabsProps) {
+	const verifyActiveTab = (tabNum: number | undefined): number => {
+		tabNum = (tabNum || 0) % tabs.length;
+		return tabNum < 0 ? tabNum + tabs.length : tabNum;
+	};
 
-	let initialTab: number = Math.min(active || 0, tabs.length-1);
-    
+	let initialTab: number = verifyActiveTab(active);
 	const [activeTab, setActiveTab] = useState(initialTab);
 
-	const tabsHeaders = tabs.map((tab, index) => (
-		<button
-			key={index}
-			css={styles.tabHeader(index === activeTab)}
-			type='button'
-			onClick={() => setActiveTab(index)}>
-			{tab.header}
-		</button>
-	));
+	useEffect(() => {
+		setActiveTab(verifyActiveTab(active));
+	}, [active, tabs]);
+
+	const tabsHeaders = tabs.map((tab, index) => {
+		const isActive = index === activeTab;
+		return (
+			<button
+				key={index}
+				css={styles.tabHeader(isActive)}
+				type='button'
+				onClick={() => setActiveTab(index)}>
+				{tab.header}
+			</button>
+		);
+	});
 
 	return (
 		<div css={styles.tabs}>
-			<div>{tabsHeaders}</div>
+			<div css={styles.headers}>{tabsHeaders}</div>
 			<div css={styles.content}>{tabs[activeTab].content}</div>
 		</div>
 	);
