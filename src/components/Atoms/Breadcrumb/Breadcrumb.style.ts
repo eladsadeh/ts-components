@@ -14,6 +14,7 @@ const breadcrumbs = css`
 	a {
 		color: gray;
         text-decoration: none;
+		margin: 0 10px;
 		&:hover {
 			color: black;
 		}

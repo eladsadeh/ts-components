@@ -15,7 +15,7 @@ function Breadcrumb(props: BreadcrumbProps) {
 	const breadcrumbs = props.routes.map((route, idx) => (
 		<li key={idx}>
 			<Link to={route.URL}>{route.text}</Link>
-			<span>&nbsp;{separator}&nbsp;</span>
+			<span>{separator}</span>
 		</li>
 	));
 

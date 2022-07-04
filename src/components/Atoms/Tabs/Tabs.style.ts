@@ -1,35 +1,40 @@
 import { css } from '@emotion/react';
 
 const tabs = css`
-	width: 100%;
-    text-align: left;
-    margin-top: 20px;
-    `;
+	text-align: left;
+	padding: 20px;
+`;
 const content = css`
-	border: 1px solid gray;
-	padding: 10px;
+	padding-top: 10px;
+	border-top: 1px solid lightgray;
 	margin-top: -1px;
-    `;
+`;
+const headers = css`
+	white-space: nowrap;
+	overflow: scroll;
+`;
 
 const tabHeader = (isActive: boolean) => css`
+	--highlight-color: #1890ff;
 	display: inline-block;
 	box-sizing: border-box;
-	margin-right: 1px;
-	padding: 5px 10px;
-	border: 1px solid gray;
-	border-radius: 5px 5px 0 0;
-	background-color: ${isActive ? 'transparent' : '#F0f0f0'};
-	color: ${isActive ? 'black' : 'gray'};
-	border-bottom: ${isActive ? '1px solid white' : '1px solid gray'};
+	margin-right: 20px;
+	padding: 10px 0px;
+	border: none;
+	background-color: transparent;
+	color: ${isActive ? 'var(--highlight-color)' : 'black'};
+	text-shadow: ${isActive ? '0 0 0.5px currentcolor' : 'none'};
+	border-bottom: ${isActive ? '2px solid var(--highlight-color)' : 'none'};
 	cursor: pointer;
 
 	&:hover {
-		background-color: ${isActive ? 'transparent' : 'white'};
+		color: var(--highlight-color);
 	}
 `;
 
 const styles = {
 	tabs,
+	headers,
 	content,
 	tabHeader,
 };
