@@ -1,3 +1,4 @@
+/** @jsxImportSource @emotion/react */
 import React, {useState, useEffect, useCallback} from 'react';
 
 import styles from './Select.style'
@@ -19,7 +20,7 @@ function Select({list, showSelect, onSelection, setShowSelect}: SelectProps) {
     setFilter('')
   }
 
-  const handleKeys = (ev: KeyboardEvent) => {
+  const handleKeys = (ev: any) => {
     ev.stopPropagation()
     
     if (ev.key === 'Enter') {
