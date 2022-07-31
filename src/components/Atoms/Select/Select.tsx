@@ -20,7 +20,7 @@ function Select({list, showSelect, onSelection, setShowSelect}: SelectProps) {
     setFilter('')
   }
 
-  const handleKeys = (ev: any) => {
+  const handleKeys = (ev: React.KeyboardEvent<HTMLElement>) => {
     ev.stopPropagation()
     
     if (ev.key === 'Enter') {
@@ -43,7 +43,7 @@ function Select({list, showSelect, onSelection, setShowSelect}: SelectProps) {
   useEffect(() => { 
     if (showSelect) document.addEventListener("keydown", cancelSelect);
     else document.removeEventListener("keydown",cancelSelect);
-  }, [showSelect]);
+  }, [showSelect, cancelSelect]);
 
   return (
     <div css={styles.select(showSelect)}>
