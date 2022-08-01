@@ -10,7 +10,7 @@ type SelectProps = {
   onSelection: (value: number) => void;
 }
 
-function Select({list, showSelect, onSelection, setShowSelect}: SelectProps) {
+export default function MultiSelect({list, showSelect, onSelection, setShowSelect}: SelectProps) {
 
   const [filter, setFilter] = useState<string>('')
   const filteredOptions = list.filter((option) => option.label.toLowerCase().includes(filter.toLowerCase()));
@@ -65,5 +65,3 @@ function Select({list, showSelect, onSelection, setShowSelect}: SelectProps) {
     </div>
   );
 }
-
-export default Select;
