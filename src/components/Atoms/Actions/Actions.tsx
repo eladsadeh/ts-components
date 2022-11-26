@@ -1,8 +1,9 @@
 /** @jsxImportSource @emotion/react */
 import React from 'react';
+
 // Icons
-import editIcon from '../../assets/icons/edit.svg';
-import deleteIcon from '../../assets/icons/delete.svg';
+import editIcon from '../../../assets/icons/edit.svg';
+import deleteIcon from '../../../assets/icons/delete.svg';
 // Style
 import styles from './Actions.styles';
 
